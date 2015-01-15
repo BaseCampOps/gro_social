@@ -1,5 +1,8 @@
 # GroSocial
 
+[![Code Climate](https://codeclimate.com/github/BaseCampOps/gro_social/badges/gpa.svg)](https://codeclimate.com/github/BaseCampOps/gro_social)
+[![Test Coverage](https://codeclimate.com/github/BaseCampOps/gro_social/badges/coverage.svg)](https://codeclimate.com/github/BaseCampOps/gro_social)
+
 TODO: Write a gem description
 
 ## Installation
