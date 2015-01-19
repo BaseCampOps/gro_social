@@ -19,5 +19,17 @@ module GroSocial
     def self.api_password
       self.instance.instance_variable_get(:@api_password)
     end
+
+    def self.request(resource_name, options = {})
+
+    end
+
+    def self.test_mode=(value)
+      self.instance.instance_variable_set(:@test_mode, (value ? true : false))
+    end
+
+    def self.test_mode
+      self.instance.instance_variable_get(:@test_mode)
+    end
   end
 end
