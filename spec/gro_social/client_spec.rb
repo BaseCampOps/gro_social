@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'vcr_helper'
 
 RSpec.describe GroSocial::Client do
   before(:each) { Singleton.__init__(GroSocial::Client) }
