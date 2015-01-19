@@ -62,5 +62,21 @@ RSpec.describe GroSocial::Client do
     it 'defaults to false' do
       expect(GroSocial::Client.test_mode).to be_falsey
     end
+
+    context 'when set to true' do
+      before(:each) do
+        GroSocial::Client.test_mode = true
+      end
+
+      it 'causes requests to go to https://apidev.grosocial.com'
+    end
+
+    context 'when set to false' do
+      before(:each) do
+        GroSocial::Client.test_mode = false
+      end
+
+      it 'causes requests to go to https://api.grosocial.com'
+    end
   end
 end
