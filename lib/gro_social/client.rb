@@ -20,6 +20,10 @@ module GroSocial
       self.instance.instance_variable_get(:@api_password)
     end
 
+    def self.api_url
+      test_mode ? 'https://apidev.grosocial.com' : 'https://api.grosocial.com'
+    end
+
     def self.request(resource_name, options = {})
 
     end

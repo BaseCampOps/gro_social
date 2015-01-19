@@ -44,6 +44,12 @@ RSpec.describe GroSocial::Client do
     end
   end
 
+  describe '.api_url' do
+    it 'responds' do
+      expect(GroSocial::Client).to respond_to(:api_url)
+    end
+  end
+
   describe '.test_mode=' do
     it 'responds' do
       expect(GroSocial::Client).to respond_to(:test_mode=)
@@ -69,7 +75,9 @@ RSpec.describe GroSocial::Client do
         GroSocial::Client.test_mode = true
       end
 
-      it 'causes requests to go to https://apidev.grosocial.com'
+      it 'causes requests to go to https://apidev.grosocial.com' do
+        expect(GroSocial::Client.api_url).to eq('https://apidev.grosocial.com')
+      end
     end
 
     context 'when set to false' do
@@ -77,7 +85,9 @@ RSpec.describe GroSocial::Client do
         GroSocial::Client.test_mode = false
       end
 
-      it 'causes requests to go to https://api.grosocial.com'
+      it 'causes requests to go to https://api.grosocial.com' do
+        expect(GroSocial::Client.api_url).to eq('https://api.grosocial.com')
+      end
     end
   end
 end
