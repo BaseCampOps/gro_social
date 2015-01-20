@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://apidev.grosocial.com/Users?key=<API_KEY>&p=<API_PASSWORD>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 20 Jan 2015 18:41:40 GMT
+      Server:
+      - Apache/2.2.14 (Ubuntu)
+      Set-Cookie:
+      - CAKEPHP=bq1h3faafce1o8jcthqkji09q4; expires=Tue, 20-Jan-2015 22:01:41 GMT;
+        path=/; secure
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, no-cache, max-age=0, must-revalidate
+      Content-Length:
+      - '4808'
+      Content-Type:
+      - text/x-json
+    body:
+      encoding: UTF-8
+      string: '{"result":{"http_status":{"code":200,"message":"Success"},"users":[{"User":{"id":"20178","firstname":"Thomas","lastname":"Mebtester","email":"tpryor@myebiz.com","phone":null,"created":"2013-11-14
+        21:22:43","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20178"},{"User":{"id":"20180","firstname":"Thomas","lastname":"Mebtester","email":"tpryor+gs2@myebiz.com","phone":null,"created":"2013-11-15
+        17:01:20","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20180"},{"User":{"id":"20181","firstname":"Thomas","lastname":"Mebtester","email":"tpryor+gs3@myebiz.com","phone":null,"created":"2013-11-15
+        17:02:54","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20181"},{"User":{"id":"20182","firstname":"Thomas","lastname":"Mebtester","email":"tpryor+gs4@myebiz.com","phone":null,"created":"2013-11-15
+        18:14:16","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20182"},{"User":{"id":"20183","firstname":"Thomas","lastname":"Mebtester","email":"tpryor+gs5@myebiz.com","phone":null,"created":"2013-11-15
+        18:15:20","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20183"},{"User":{"id":"20185","firstname":"Thomas","lastname":"Mebtester","email":"tpryor+gs6@gmail.com","phone":null,"created":"2013-11-20
+        20:06:54","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20185"},{"User":{"id":"20505","firstname":"Thomas","lastname":"Mebtester","email":"mebtester+test1@gmail.com","phone":null,"created":"2014-02-27
+        21:58:35","custom1":"Re","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20505"},{"User":{"id":"20507","firstname":"Thomas","lastname":"Mebtester","email":"mebtester+test2@gmail.com","phone":null,"created":"2014-02-28
+        16:09:54","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20507"},{"User":{"id":"20508","firstname":"Tester","lastname":"Mebtester","email":"mebtester+test3@gmail.com","phone":null,"created":"2014-02-28
+        16:10:25","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20508"},{"User":{"id":"20509","firstname":"Tester","lastname":"Mebtester","email":"mebtester+test4@gmail.com","phone":null,"created":"2014-02-28
+        16:12:29","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20509"},{"User":{"id":"20517","firstname":"Thomas","lastname":"Mebtester","email":"mebtester+gromerge1@gmail.com","phone":null,"created":"2014-03-10
+        20:25:24","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20517"},{"User":{"id":"20520","firstname":"Test","lastname":"TestingSBP","email":"mebtester+SBP31014@gmail.com","phone":null,"created":"2014-03-11
+        15:02:28","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20520"},{"User":{"id":"20521","firstname":"SBP","lastname":"TESTING","email":"mebtester+spbtest555@gmail.com","phone":null,"created":"2014-03-11
+        19:02:23","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20521"},{"User":{"id":"20657","firstname":"Thomas","lastname":"Mebtester","email":"mebtester+ipsbp1@gmail.com","phone":null,"created":"2014-10-30
+        02:46:45","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20657"},{"User":{"id":"20660","firstname":"Thomas","lastname":"Mebtester","email":"mebtester+pmiprint1@gmail.com","phone":null,"created":"2014-10-31
+        03:15:07","custom1":"","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20660"},{"User":{"id":"20695","firstname":"Thomas","lastname":"Mebtester","email":"mebtester+printmerge1@gmail.com","phone":null,"created":"2014-11-23
+        03:27:22","custom1":"Re","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20695"},{"User":{"id":"20708","firstname":"Thomas","lastname":"Mebtester","email":"mebtester+sbpre10@gmail.com","phone":null,"created":"2014-12-26
+        13:40:13","custom1":"Re","custom2":"","custom3":"","alertmessage":""},"subscriptionlink":"http://apidev.grosocial.com/usersubscriptions/20708"}]}}'
+    http_version: 
+  recorded_at: Tue, 20 Jan 2015 18:41:40 GMT
+recorded_with: VCR 2.9.3

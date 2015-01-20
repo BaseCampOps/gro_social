@@ -48,7 +48,7 @@ RSpec.describe GroSocial::Client do
         GroSocial::Client.test_mode = true
       end
 
-      it 'raises an error' do
+      it 'raises an error', :vcr do
         expect {
           GroSocial::Client.request('Users', :get)
         }.to raise_error(RuntimeError, 'GroSocial credentials not accepted')
@@ -62,13 +62,13 @@ RSpec.describe GroSocial::Client do
         GroSocial::Client.api_password = ENV['GROSOCIAL_PASSWORD']
       end
 
-      it 'does not raise an error' do
+      it 'does not raise an error', :vcr do
         expect {
           GroSocial::Client.request('Users', :get)
         }.to_not raise_error
       end
 
-      it 'returns a parsed JSON response' do
+      it 'returns a parsed JSON response', :vcr do
         result = GroSocial::Client.request('Users', :get)
         expect(result).to be_a(Hash)
         expect(result['result']).to_not be_nil
