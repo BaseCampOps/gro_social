@@ -42,6 +42,39 @@ RSpec.describe GroSocial::Client do
     it 'responds' do
       expect(GroSocial::Client).to respond_to(:request)
     end
+
+    context 'with invalid credentials' do
+      before(:each) do
+        GroSocial::Client.test_mode = true
+      end
+
+      it 'raises an error' do
+        expect {
+          GroSocial::Client.request('Users', :get)
+        }.to raise_error(RuntimeError, 'GroSocial credentials not accepted')
+      end
+    end
+
+    context 'with options to GET all Users' do
+      before(:each) do
+        GroSocial::Client.test_mode = true
+        GroSocial::Client.api_key = ENV['GROSOCIAL_KEY']
+        GroSocial::Client.api_password = ENV['GROSOCIAL_PASSWORD']
+      end
+
+      it 'does not raise an error' do
+        expect {
+          GroSocial::Client.request('Users', :get)
+        }.to_not raise_error
+      end
+
+      it 'returns a parsed JSON response' do
+        result = GroSocial::Client.request('Users', :get)
+        expect(result).to be_a(Hash)
+        expect(result['result']).to_not be_nil
+        expect(result['result']['users']).to_not be_nil
+      end
+    end
   end
 
   describe '.api_url' do
