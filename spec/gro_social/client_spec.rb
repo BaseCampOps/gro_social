@@ -75,6 +75,27 @@ RSpec.describe GroSocial::Client do
         expect(result['result']['users']).to_not be_nil
       end
     end
+
+    context 'with options to GET a single User' do
+      before(:each) do
+        GroSocial::Client.test_mode = true
+        GroSocial::Client.api_key = ENV['GROSOCIAL_KEY']
+        GroSocial::Client.api_password = ENV['GROSOCIAL_PASSWORD']
+      end
+
+      it 'does not raise an error', :vcr do
+        expect {
+          GroSocial::Client.request('Users', :get, {id: '20183'})
+        }.to_not raise_error
+      end
+
+      it 'returns a parsed JSON response', :vcr do
+        result = GroSocial::Client.request('Users', :get, {id: '20183'})
+        expect(result).to be_a(Hash)
+        expect(result['result']).to_not be_nil
+        expect(result['result']['user']).to_not be_nil
+      end
+    end
   end
 
   describe '.api_url' do

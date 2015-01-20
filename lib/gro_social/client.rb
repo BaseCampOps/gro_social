@@ -44,7 +44,7 @@ module GroSocial
     private
 
     def self.build_resource_url(resource_name, options)
-      url = "#{api_url}/#{resource_name}"
+      url = "#{api_url}/#{resource_name.downcase}"
       url += "/#{options[:id]}" if options[:id]
 
       url += "?key=#{api_key}&p=#{api_password}"
