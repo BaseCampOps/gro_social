@@ -44,7 +44,17 @@ interact with the supported resources.
 
 ### Users
 
-TODO: Document the GroSocial::Users API
+There are two classes that you will work with in regards to users:
+`GroSocial::Users` and `GroSocial::User`. `GroSocial::Users` represents the
+class you will use to locate specific users or iterate over them.
+
+```ruby
+user = GroSocial::Users[1234]   # GroSocial::User
+
+user.id         # '1234'
+user.firstname  # 'John'
+user.lastname   # 'Doe'
+```
 
 ### Subscriptions
 
