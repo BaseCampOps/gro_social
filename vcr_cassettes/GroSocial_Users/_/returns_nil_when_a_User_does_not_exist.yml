@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://apidev.grosocial.com/users/0?key=<API_KEY>&p=<API_PASSWORD>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Feb 2015 05:53:11 GMT
+      Server:
+      - Apache/2.2.14 (Ubuntu)
+      Set-Cookie:
+      - CAKEPHP=kd0mt6hs5u40fhc3hjaesusjb5; expires=Fri, 06-Feb-2015 09:13:11 GMT;
+        path=/; secure
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, no-cache, max-age=0, must-revalidate
+      Content-Length:
+      - '68'
+      Content-Type:
+      - text/x-json
+    body:
+      encoding: UTF-8
+      string: '{"result":{"http_status":{"code":400,"message":"Resource Invalid"}}}'
+    http_version: 
+  recorded_at: Fri, 06 Feb 2015 05:53:11 GMT
+recorded_with: VCR 2.9.3
