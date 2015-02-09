@@ -27,6 +27,8 @@ RSpec.describe GroSocial::Users do
     end
 
     context 'with a fresh user' do
+      vcr_options = { cassette_name: 'GroSocial_Users/creating_a_user' }
+      
       let(:user) do
         GroSocial::User.new(firstname:  'John',
                             lastname:   'Doe',
@@ -34,8 +36,6 @@ RSpec.describe GroSocial::Users do
                             password:   'secret123',
                             phone:      '(555) 123-4567')
       end
-
-      vcr_options = { cassette_name: 'GroSocial_Users/creating_a_user' }
 
       it 'accepts and returns a GroSocial::User', vcr: vcr_options do
         expect(GroSocial::Users << user).to be_a(GroSocial::User)
