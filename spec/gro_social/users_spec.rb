@@ -47,6 +47,33 @@ RSpec.describe GroSocial::Users do
         expect(user.id).to_not be_nil
       end
     end
+
+    context 'with an existing user' do
+      vcr_options = { cassette_name: 'GroSocial_Users/updating_a_user' }
+
+      let(:user) do
+        GroSocial::User.new(firstname:  'John',
+                            lastname:   'Doe',
+                            email:      'johndoe2@example.org',
+                            password:   'secret123',
+                            phone:      '(555) 123-4567')
+      end
+
+      before(:each) do
+        GroSocial::Users << user
+        user.password = 'secret456'
+      end
+
+      it 'accepts and returns a GroSocial::User', vcr: vcr_options do
+        expect(GroSocial::Users << user).to be_a(GroSocial::User)
+      end
+
+      it 'updates the :id field', vcr: vcr_options do
+        expect(user.id).to_not be_nil
+        GroSocial::Users << user
+        expect(user.id).to_not be_nil
+      end
+    end
   end
 
   # describe '.each' do

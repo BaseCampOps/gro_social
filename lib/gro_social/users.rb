@@ -20,8 +20,9 @@ module GroSocial
           custom3:      user.custom3,
           alertmessage: user.alertmessage
       }}}
+      options[:id] = user.id unless user.id.nil?
       result = GroSocial::Client.request('Users', :post, options)
-      user.id = result['result']['User']['id']
+      user.id = result['result']['User']['id'] if user.id.nil?
       user
     end
 

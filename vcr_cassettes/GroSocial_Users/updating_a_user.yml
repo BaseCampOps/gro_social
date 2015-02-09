@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://apidev.grosocial.com/users?key=<API_KEY>&p=<API_PASSWORD>
+    body:
+      encoding: UTF-8
+      string: alertmessage=&custom1=&custom2=&custom3=&email=johndoe2%40example.org&firstname=John&lastname=Doe&password=secret123&phone=%28555%29%20123-4567
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Feb 2015 06:47:44 GMT
+      Server:
+      - Apache/2.2.14 (Ubuntu)
+      Set-Cookie:
+      - CAKEPHP=qie2k784hkjd3mkjgo27dgfi02; expires=Mon, 09-Feb-2015 10:07:45 GMT;
+        path=/; secure
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, no-cache, max-age=0, must-revalidate
+      Content-Length:
+      - '81'
+      Content-Type:
+      - text/x-json
+    body:
+      encoding: UTF-8
+      string: '{"result":{"http_status":{"code":201,"message":"Created"},"User":{"id":"20713"}}}'
+    http_version: 
+  recorded_at: Mon, 09 Feb 2015 06:47:45 GMT
+- request:
+    method: post
+    uri: https://apidev.grosocial.com/users/20713?key=<API_KEY>&p=<API_PASSWORD>
+    body:
+      encoding: UTF-8
+      string: alertmessage=&custom1=&custom2=&custom3=&email=johndoe2%40example.org&firstname=John&lastname=Doe&password=secret456&phone=%28555%29%20123-4567
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Feb 2015 06:52:56 GMT
+      Server:
+      - Apache/2.2.14 (Ubuntu)
+      Set-Cookie:
+      - CAKEPHP=u2er1mi7tprub45nh2jileo6h1; expires=Mon, 09-Feb-2015 10:12:56 GMT;
+        path=/; secure
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, no-cache, max-age=0, must-revalidate
+      Content-Length:
+      - '59'
+      Content-Type:
+      - text/x-json
+    body:
+      encoding: UTF-8
+      string: '{"result":{"http_status":{"code":200,"message":"Success"}}}'
+    http_version: 
+  recorded_at: Mon, 09 Feb 2015 06:52:56 GMT
+recorded_with: VCR 2.9.3
