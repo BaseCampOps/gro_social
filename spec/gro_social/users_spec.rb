@@ -28,7 +28,7 @@ RSpec.describe GroSocial::Users do
 
     context 'with a fresh user' do
       vcr_options = { cassette_name: 'GroSocial_Users/creating_a_user' }
-      
+
       let(:user) do
         GroSocial::User.new(firstname:  'John',
                             lastname:   'Doe',

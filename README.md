@@ -47,6 +47,12 @@ interact with the supported resources.
 There are two classes that you will work with in regards to users:
 `GroSocial::Users` and `GroSocial::User`. `GroSocial::Users` represents the
 class you will use to locate specific users or iterate over them.
+`GroSocial::Users` can be treated like a Hash when it comes to accessing and
+working with the `GroSocial::User` records.
+
+#### Retrieval
+
+Retrieval is keyed to the ID for the user you want to access.
 
 ```ruby
 user = GroSocial::Users[1234]   # GroSocial::User
@@ -54,6 +60,26 @@ user = GroSocial::Users[1234]   # GroSocial::User
 user.id         # '1234'
 user.firstname  # 'John'
 user.lastname   # 'Doe'
+```
+
+#### Creation
+
+The `<<` operation is used to both create and update records and its behavior
+is based on whether the `GroSocial::User` being pushed in already has an ID
+value set.
+
+```ruby
+user = GroSocial::User.new(
+    firstname:  'John',
+    lastname:   'Doe',
+    email:      'johndoe@example.com',
+    password:   'secret123'
+)
+user.id         # nil
+
+GroSocial::Users << user
+
+user.id         # '12345'
 ```
 
 ### Subscriptions
