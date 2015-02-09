@@ -21,15 +21,43 @@ RSpec.describe GroSocial::Users do
     end
   end
 
-  describe '.each' do
+  describe '.<<' do
     it 'responds' do
-      expect(GroSocial::Users).to respond_to(:each)
+      expect(GroSocial::Users).to respond_to(:<<)
     end
 
-    it 'returns GroSocial::User instances' do
-      # GroSocial::Users.each do |user|
-      #   expect(user).to be_a_kind_of(GroSocial::User)
-      # end
+    context 'with a fresh user' do
+      let(:user) do
+        GroSocial::User.new(firstname:  'John',
+                            lastname:   'Doe',
+                            email:      'johndoe@example.org',
+                            password:   'secret123',
+                            phone:      '(555) 123-4567')
+      end
+
+      vcr_options = { cassette_name: 'GroSocial_Users/creating_a_user' }
+
+      it 'accepts and returns a GroSocial::User', vcr: vcr_options do
+        expect(GroSocial::Users << user).to be_a(GroSocial::User)
+      end
+
+      it 'updates the :id field', vcr: vcr_options do
+        expect(user.id).to be_nil
+        GroSocial::Users << user
+        expect(user.id).to_not be_nil
+      end
     end
   end
+
+  # describe '.each' do
+  #   it 'responds' do
+  #     expect(GroSocial::Users).to respond_to(:each)
+  #   end
+  #
+  #   it 'returns GroSocial::User instances' do
+  #     # GroSocial::Users.each do |user|
+  #     #   expect(user).to be_a_kind_of(GroSocial::User)
+  #     # end
+  #   end
+  # end
 end

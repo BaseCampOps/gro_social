@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://apidev.grosocial.com/users?key=<API_KEY>&p=<API_PASSWORD>
+    body:
+      encoding: UTF-8
+      string: alertmessage=&custom1=&custom2=&custom3=&email=johndoe%40example.org&firstname=John&lastname=Doe&password=secret123&phone=%28555%29%20123-4567
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Feb 2015 06:29:11 GMT
+      Server:
+      - Apache/2.2.14 (Ubuntu)
+      Set-Cookie:
+      - CAKEPHP=fa3qh0ie5k6u1bkd0c4f4pkjg2; expires=Mon, 09-Feb-2015 09:49:12 GMT;
+        path=/; secure
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, no-cache, max-age=0, must-revalidate
+      Content-Length:
+      - '81'
+      Content-Type:
+      - text/x-json
+    body:
+      encoding: UTF-8
+      string: '{"result":{"http_status":{"code":201,"message":"Created"},"User":{"id":"20712"}}}'
+    http_version: 
+  recorded_at: Mon, 09 Feb 2015 06:29:12 GMT
+recorded_with: VCR 2.9.3
