@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://apidev.grosocial.com/usersubscriptions/20183?key=<API_KEY>&p=<API_PASSWORD>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 02 Mar 2015 23:44:56 GMT
+      Server:
+      - Apache/2.2.14 (Ubuntu)
+      Set-Cookie:
+      - CAKEPHP=hu53gi3726ldfkcu3hp703tud6; expires=Tue, 03-Mar-2015 03:04:56 GMT;
+        path=/; secure
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, no-cache, max-age=0, must-revalidate
+      Content-Length:
+      - '334'
+      Content-Type:
+      - text/x-json
+    body:
+      encoding: UTF-8
+      string: '{"result":{"http_status":{"code":200,"message":"Success"},"usersubscriptions":[{"Usersubscription":{"user_id":"20183","subscriptionname":"Customizer","applicationname":"Customizer","extrapagescredits":"0","additionalfanpages":"0","iswhitelabel":"0","nextpaymentdate":"2015-12-31","expirationdate":"2015-12-31","status":"Canceled"}}]}}'
+    http_version: 
+  recorded_at: Mon, 02 Mar 2015 23:44:56 GMT
+recorded_with: VCR 2.9.3

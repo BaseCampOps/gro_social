@@ -4,26 +4,12 @@ module GroSocial
 
     def self.[](id)
       result = GroSocial::Client.request('Users', :get, {id: id.to_s})
-      return nil if result['result']['user'].nil?
-      GroSocial::User.new(result['result']['user'])
+      return unless result['result']['user']['User']
+      GroSocial::User.new(result['result']['user']['User'])
     end
 
     def self.<<(user)
-      options = { typhoeus: { body: {
-          firstname:    user.firstname,
-          lastname:     user.lastname,
-          email:        user.email,
-          password:     user.password,
-          phone:        user.phone,
-          custom1:      user.custom1,
-          custom2:      user.custom2,
-          custom3:      user.custom3,
-          alertmessage: user.alertmessage
-      }}}
-      options[:id] = user.id unless user.id.nil?
-      result = GroSocial::Client.request('Users', :post, options)
-      user.id = result['result']['User']['id'] if user.id.nil?
-      user
+      user.save
     end
 
     # def self.each(&block)

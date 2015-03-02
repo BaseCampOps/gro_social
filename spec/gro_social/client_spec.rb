@@ -51,7 +51,7 @@ RSpec.describe GroSocial::Client do
       it 'raises an error', :vcr do
         expect {
           GroSocial::Client.request('Users', :get)
-        }.to raise_error(RuntimeError, 'GroSocial credentials not accepted')
+        }.to raise_error(GroSocial::AuthError, 'GroSocial credentials not accepted')
       end
     end
 

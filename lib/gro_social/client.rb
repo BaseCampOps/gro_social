@@ -29,7 +29,9 @@ module GroSocial
       url = build_resource_url(resource_name, options)
       response = Typhoeus.send(http_verb.to_s.downcase.to_sym, url, options_for_typhoeus(options[:typhoeus]))
       parsed_results = JSON.parse(response.response_body)
-      raise RuntimeError, 'GroSocial credentials not accepted' if parsed_results['result']['http_status']['code'] == 401
+      code = parsed_results['result']['http_status']['code']
+      raise ::GroSocial::AuthError, response if code == 401
+      raise ::GroSocial::Error, response if code > 399
       parsed_results
     end
 

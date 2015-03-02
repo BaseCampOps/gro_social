@@ -84,7 +84,16 @@ user.id         # '12345'
 
 ### Subscriptions
 
-TODO: Document the GroSocial::Subscription API
+#### Updating
+
+```ruby
+user = GroSocial::Users[1234]
+subscription = user.subscription # => an instance of GroSocial::Subscription
+
+subscription.canceled = false
+subscription.nextpaymentdate = 1.year.from_now
+subscription.save
+```
 
 ### Future-Proofing
 

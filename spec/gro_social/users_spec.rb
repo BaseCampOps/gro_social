@@ -1,12 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe GroSocial::Users do
-  before(:each) do
-    GroSocial::Client.test_mode = true
-    GroSocial::Client.api_key = ENV['GROSOCIAL_KEY']
-    GroSocial::Client.api_password = ENV['GROSOCIAL_PASSWORD']
-  end
-
   describe '.[]' do
     it 'responds' do
       expect(GroSocial::Users).to respond_to(:[])
@@ -16,7 +10,7 @@ RSpec.describe GroSocial::Users do
       expect(GroSocial::Users['20183']).to be_a_kind_of(GroSocial::User)
     end
 
-    it 'returns nil when a User does not exist', :vcr do
+    pending 'returns nil when a User does not exist', :vcr do
       expect(GroSocial::Users['0']).to eq(nil)
     end
   end
