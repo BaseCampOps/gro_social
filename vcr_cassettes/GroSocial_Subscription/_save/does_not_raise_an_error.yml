@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://apidev.grosocial.com/usersubscriptions/20183?key=<API_KEY>&p=<API_PASSWORD>
+    body:
+      encoding: UTF-8
+      string: additionalfanpages=0&applicationname=Application%20name&canceled&expirationdate=2015-12-31&extrapagescredits=0&iswhitelabel=false&nextpaymentdate=2015-12-31&status=Active&subscriptionname=Subscription%20name&user_id=20183
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 02 Mar 2015 23:44:56 GMT
+      Server:
+      - Apache/2.2.14 (Ubuntu)
+      Set-Cookie:
+      - CAKEPHP=de5j62r59acub0j575irk74880; expires=Tue, 03-Mar-2015 03:04:56 GMT;
+        path=/; secure
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store, no-cache, max-age=0, must-revalidate
+      Content-Length:
+      - '59'
+      Content-Type:
+      - text/x-json
+    body:
+      encoding: UTF-8
+      string: '{"result":{"http_status":{"code":200,"message":"Success"}}}'
+    http_version: 
+  recorded_at: Mon, 02 Mar 2015 23:44:56 GMT
+recorded_with: VCR 2.9.3

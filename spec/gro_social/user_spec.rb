@@ -1,9 +1,26 @@
 require 'spec_helper'
+require 'vcr_helper'
 
 RSpec.describe GroSocial::User do
   let(:now) { DateTime.now }
 
-  %w{id firstname lastname email phone created custom1 custom2 custom3 alertmessage}.each do |field|
+  let(:attributes) do
+    {
+      id:             '123',
+      firstname:      'John',
+      lastname:       'Doe',
+      email:          'jdoe@example.com',
+      password:       'password',
+      phone:          '(555) 123-4567',
+      created:        now.to_s,
+      custom1:        '123',
+      custom2:        '456',
+      custom3:        '789',
+      alertmessage:   'ALERT!'
+    }
+  end
+
+  %w{id firstname lastname email password phone created custom1 custom2 custom3 alertmessage}.each do |field|
     it { expect(subject).to respond_to(field.to_sym) }
   end
 
@@ -11,19 +28,6 @@ RSpec.describe GroSocial::User do
     let(:subject) { GroSocial::User.new(attributes) }
 
     context 'with valid attributes' do
-      let(:attributes) { {
-          id:             '123',
-          firstname:      'John',
-          lastname:       'Doe',
-          email:          'jdoe@example.com',
-          phone:          '(555) 123-4567',
-          created:        now.to_s,
-          custom1:        '123',
-          custom2:        '456',
-          custom3:        '789',
-          alertmessage:   'ALERT!'
-      } }
-
       it 'sets attributes correctly' do
         expect(subject.id).to eq('123')
         expect(subject.firstname).to eq('John')
@@ -60,5 +64,15 @@ RSpec.describe GroSocial::User do
         expect(subject).to_not respond_to(:unknown=)
       end
     end
+  end
+
+  describe '#attributes' do
+    subject { (GroSocial::User.new attributes).attributes }
+    it { should eq attributes }
+  end
+
+  describe '#subscription', :vcr do
+    subject { (GroSocial::User.new id: 20183).subscription }
+    it { should be_a_kind_of GroSocial::Subscription }
   end
 end
